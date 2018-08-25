@@ -1,6 +1,5 @@
 package com.mavolas.archdesign.MVC;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,11 +9,10 @@ import android.widget.TextView;
 
 import com.mavolas.archdesign.MVC.Model.OnLoginListener;
 import com.mavolas.archdesign.MVC.Model.User;
-import com.mavolas.archdesign.MVC.Model.UserInfoModel;
 import com.mavolas.archdesign.MVC.Model.UserModelImp;
 import com.mavolas.archdesign.R;
 
-public class MainActivity extends AppCompatActivity implements OnLoginListener{
+public class MVCLoginActivity extends AppCompatActivity implements OnLoginListener{
 
 
     EditText mUserName,mPassWord;
@@ -31,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements OnLoginListener{
 
 
         userModelImp = new UserModelImp();
-
         mUserName =  findViewById(R.id.et_userName);
         mPassWord =  findViewById(R.id.et_passWord);
         mProgressBar= findViewById(R.id.pb_progressBar);
@@ -46,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements OnLoginListener{
 
         User data =new User(mUserName.getText().toString() , mPassWord.getText().toString());
 
-        userModelImp.doLogin(data,MainActivity.this);
+        userModelImp.doLogin(data,MVCLoginActivity.this);
 
     }
 
